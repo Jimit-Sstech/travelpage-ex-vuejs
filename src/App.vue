@@ -1,13 +1,16 @@
 <template>
+  <TopbarView />
   <navbar-view />
   <router-view />
 </template>
 
 <script>
-import NavbarView from './components/NavbarView.vue';
+import NavbarView from "./components/NavbarView.vue";
+import TopbarView from "./components/TopbarView.vue";
 export default {
   components: {
-    NavbarView
+    NavbarView,
+    TopbarView,
   },
 };
 </script>
@@ -17,20 +20,13 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  max-width: 60rem;
+  margin: 0 auto;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 </style>
