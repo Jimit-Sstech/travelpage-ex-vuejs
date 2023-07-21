@@ -1,12 +1,15 @@
 <template>
   <div class="images__container" :id="type">
     <a href="#">{{ type }}</a>
-    <div class="images__grid__container">
+    <div
+      class="images__grid__container"
+      :class="type === 'Popular' ? 'popular' : 'featured'"
+    >
       <div
         class="images__grid"
-        :class="type === 'Popular' ? 'popular' : 'featured'"
         v-for="(image, id) in slicedImages"
         :key="id"
+        :class="[`img-${id}`]"
       >
         <img :src="image.src" :alt="image.alt" />
       </div>
@@ -39,8 +42,17 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 }
-.images__grid__container .images__grid {
-  height: 200px;
+.images__container .featured {
+  grid-template-areas:
+    "img0 img0 img1 img2"
+    "img0 img0 img3 img4";
+  grid-template-rows: repeat(2, 1fr);
+}
+.images__container .popular {
+  grid-template-areas:
+    "img0 img1 img4 img4"
+    "img2 img3 img4 img4";
+  grid-template-rows: repeat(2, 1fr);
 }
 .images__grid__container .images__grid img {
   width: 100%;
@@ -48,16 +60,77 @@ export default {
   object-fit: cover;
   border-radius: 20px;
 }
-.images__grid__container .featured:first-child {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-  width: 100%;
-  height: 100%;
+.img-0 {
+  grid-area: img0;
 }
-.images__grid__container .popular:last-child {
-  grid-column: 3 / 5;
-  grid-row: 1 / 3;
-  width: 100%;
-  height: 100%;
+.img-1 {
+  grid-area: img1;
+}
+.img-2 {
+  grid-area: img2;
+}
+.img-3 {
+  grid-area: img3;
+}
+.img-4 {
+  grid-area: img4;
+}
+
+@media screen and (max-width: 920px) {
+  .images__container .featured {
+    grid-template-areas:
+      "img0 img0 img1"
+      "img0 img0 img3"
+      "img2 img4 img4";
+    grid-template-rows: 150px 150px 200px;
+  }
+
+  .images__container .popular {
+    grid-template-areas:
+      "img0 img4 img4"
+      "img1 img4 img4"
+      "img2 img3 img3";
+    grid-template-rows: repeat(2, 150px) 200px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .images__container .featured {
+    grid-template-areas:
+      "img0 img1"
+      "img2 img1"
+      "img3 img4";
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .images__container .popular {
+    grid-template-areas:
+      "img0 img1"
+      "img2 img2"
+      "img3 img4";
+    grid-template-rows: repeat(3, 200px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .images__container .featured {
+    grid-template-areas:
+      "img0"
+      "img1"
+      "img2"
+      "img3"
+      "img4";
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .images__container .popular {
+    grid-template-areas:
+      "img0"
+      "img1"
+      "img2"
+      "img3"
+      "img4";
+    grid-template-rows: repeat(5, 300px);
+  }
 }
 </style>
