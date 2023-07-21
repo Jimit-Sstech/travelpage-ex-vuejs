@@ -10,7 +10,7 @@
 <script>
 export default {};
 </script>
-<style>
+<style scoped>
 .topbar__info {
   display: flex;
   align-items: center;
@@ -25,6 +25,7 @@ export default {};
 
 .topbar__info h3 {
   font-weight: 900;
+  transform: translateX(100%);
 }
 
 .topbar__info p {
