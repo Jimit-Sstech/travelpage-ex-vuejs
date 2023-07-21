@@ -1,13 +1,16 @@
 <template>
   <div class="home">
-    Home
+    <CategoriesIcon />
+    <ImagesGrid />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import CategoriesIcon from "@/components/CategoriesIcon.vue";
+import ImagesGrid from "@/components/ImagesGrid.vue";
 
 export default {
-  name: 'HomeView',
-}
+  name: "HomeView",
+  components: { CategoriesIcon, ImagesGrid },
+};
 </script>
