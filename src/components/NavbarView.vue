@@ -4,7 +4,11 @@
       <h3>airtravel</h3>
     </div>
     <div class="navbar__input__div">
-      <input type="text" class="navbar__input" placeholder="Search Properties..." />
+      <input
+        type="text"
+        class="navbar__input"
+        placeholder="Search Properties..."
+      />
       <font-awesome-icon icon="magnifying-glass" class="search__icon" />
     </div>
     <div class="navbar__list">
@@ -13,17 +17,15 @@
       <span>Popular</span>
     </div>
   </nav>
-  <hr class="custom__hr">
+  <hr class="custom__hr" />
 </template>
+
 <script>
-// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
   name: "NavbarView",
-  components: {
-    // FontAwesomeIcon,
-  },
 };
 </script>
+
 <style scoped>
 .navbar {
   display: flex;
@@ -33,7 +35,7 @@ export default {
 }
 .navbar__list {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   font-size: 14px;
 }
 .navbar__input__div {
@@ -44,7 +46,7 @@ export default {
   width: 17rem;
   padding: 0 10px;
   border-radius: 50px;
-  box-shadow: 1px 1px 10px 1px rgba(212,212,212,1);
+  box-shadow: 1px 1px 10px 1px rgba(212, 212, 212, 1);
 }
 .navbar__input {
   border: none;
@@ -66,10 +68,10 @@ h3 {
 .search__icon {
   position: absolute;
   color: rgba(243, 56, 23, 0.986);
-  margin-right: 15px;
+  margin-right: 5px;
 }
 .custom__hr {
   margin-top: 5px;
-  border-top: 1px solid hsl(0deg 8.27% 93.13%);;
+  border-top: 1px solid hsl(0deg 8.27% 93.13%);
 }
 </style>

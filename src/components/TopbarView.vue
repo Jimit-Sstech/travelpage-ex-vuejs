@@ -7,9 +7,11 @@
     <hr class="custom__hr" />
   </div>
 </template>
+
 <script>
 export default {};
 </script>
+
 <style scoped>
 .topbar__info {
   display: flex;
