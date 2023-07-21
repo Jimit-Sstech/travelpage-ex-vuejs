@@ -12,9 +12,9 @@
       <font-awesome-icon icon="magnifying-glass" class="search__icon" />
     </div>
     <div class="navbar__list">
-      <span>Listings</span>
-      <span>Featured</span>
-      <span>Popular</span>
+      <a href="#listings">Listings</a>
+      <a href="#Featured">Featured</a>
+      <a href="#Popular">Popular</a>
     </div>
   </nav>
   <hr class="custom__hr" />
@@ -37,6 +37,11 @@ export default {
   display: flex;
   gap: 15px;
   font-size: 14px;
+}
+.navbar__list a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 .navbar__input__div {
   position: relative;

@@ -1,5 +1,5 @@
 <template>
-  <div class="images__container">
+  <div class="images__container" id="listings">
     <div
       class="images__card"
       v-for="(image, id) in images.slice(0, 12)"
