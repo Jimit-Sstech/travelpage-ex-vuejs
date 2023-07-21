@@ -42,7 +42,7 @@ export default {};
   font-weight: 500;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .topbar__info h3 {
     transform: translateX(0);
   }

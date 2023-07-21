@@ -53,4 +53,10 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@media screen and (max-width: 980px) {
+  #app {
+    max-width: 90%;
+  }
+}
 </style>

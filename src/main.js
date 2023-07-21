@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faBars,
   faCampground,
   faCity,
   faHouse,
@@ -26,7 +27,8 @@ library.add(
   faSoccerBall,
   faRocket,
   faVirus,
-  faStar
+  faStar,
+  faBars
 );
 
 createApp(App)
