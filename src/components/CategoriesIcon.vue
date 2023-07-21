@@ -45,4 +45,10 @@ export default {
   margin-top: 5px;
   font-size: 13px;
 }
+
+@media screen and (max-width: 600px) {
+  .categories__container {
+    display: none;
+  }
+}
 </style>

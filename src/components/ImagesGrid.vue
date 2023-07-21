@@ -47,7 +47,6 @@ export default {
   color: black;
   height: 280px;
   font-size: 14px;
-  /* box-shadow: 1px 1px 10px 1px rgba(212, 212, 212, 1); */
 }
 .images__card img {
   width: 100%;
@@ -76,5 +75,16 @@ export default {
 .rating {
   display: flex;
   gap: 5px;
+}
+
+@media screen and (max-width: 461px) {
+  .images__card {
+    box-shadow: 1px 1px 10px 1px rgba(212, 212, 212, 1);
+    height: 350px;
+  }
+  .images__card img {
+    border-radius: 0px;
+    height: 70%;
+  }
 }
 </style>
