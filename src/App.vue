@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+  overflow: scroll;
+}
 #app {
   font-family: "Poppins", sans-serif;
   font-family: "Roboto", sans-serif;
@@ -30,5 +34,23 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>

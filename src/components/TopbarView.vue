@@ -1,7 +1,9 @@
 <template>
   <div class="topbar">
     <div class="topbar__info">
-      <h3>Introducing the new AirTravel</h3>
+      <h3>
+        <router-link to="/"> Introducing the new AirTravel </router-link>
+      </h3>
       <p>Learn more</p>
     </div>
     <hr class="custom__hr" />
@@ -28,6 +30,11 @@ export default {};
 .topbar__info h3 {
   font-weight: 900;
   transform: translateX(100%);
+}
+
+.topbar__info h3 a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .topbar__info p {
