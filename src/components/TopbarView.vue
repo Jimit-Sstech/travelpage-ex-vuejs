@@ -41,4 +41,19 @@ export default {};
   font-size: 14px;
   font-weight: 500;
 }
+
+@media screen and (max-width: 767px) {
+  .topbar__info h3 {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .topbar__info h3 {
+    font-size: 14px;
+  }
+  .topbar__info p {
+    font-size: 12px;
+  }
+}
 </style>
