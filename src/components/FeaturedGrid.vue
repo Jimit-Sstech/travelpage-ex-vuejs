@@ -11,16 +11,61 @@
         :key="id"
         :class="[`img-${id}`]"
       >
-        <img :src="image.src" :alt="image.alt" />
+        <img
+          :src="placeholderImageSrc"
+          :data-src="image.src"
+          :alt="image.alt"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { onMounted, ref } from "vue";
+
 export default {
   name: "FeaturedGrid",
   props: ["type", "slicedImages"],
+  setup() {
+    const loadedImages = ref([]);
+    const placeholderImageSrc =
+      "https://via.placeholder.com/800x600?text=Loading";
+
+    onMounted(() => {
+      const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px",
+        threshold: 0.1, // Percentage of the image that needs to be visible to trigger the callback
+      };
+
+      // Create a new Intersection Observer
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Load the image when it enters the viewport
+            const img = entry.target;
+            img.src = img.dataset.src;
+            loadedImages.value.push(img);
+            observer.unobserve(img);
+          }
+        });
+      }, options);
+
+      // Get all the images with the "data-src" attribute
+      const lazyImages = document.querySelectorAll("img[data-src]");
+
+      // Observe each lazy image
+      lazyImages.forEach((img) => {
+        observer.observe(img);
+      });
+    });
+
+    return {
+      loadedImages,
+      placeholderImageSrc,
+    };
+  },
 };
 </script>
 

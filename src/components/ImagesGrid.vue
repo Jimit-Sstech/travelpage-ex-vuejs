@@ -1,11 +1,7 @@
 <template>
   <div class="images__container" id="listings">
-    <div
-      class="images__card"
-      v-for="(image, id) in images.slice(0, 12)"
-      :key="id"
-    >
-      <img :src="image.src" :alt="image.alt" />
+    <div class="images__card" v-for="(image, id) in images" :key="id">
+      <img :src="placeholderImageSrc" :data-src="image.src" :alt="image.alt" />
       <div class="city__info">
         <h4>City, State</h4>
         <div class="rating">
@@ -22,11 +18,47 @@
 
 <script>
 import { images } from "../constants/images";
+import { onMounted, ref } from "vue";
 export default {
   name: "ImagesGrid",
   setup() {
+    const loadedImages = ref([]);
+    const placeholderImageSrc =
+      "https://via.placeholder.com/800x600?text=Loading";
+
+    onMounted(() => {
+      const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px",
+        threshold: 0.1, // Percentage of the image that needs to be visible to trigger the callback
+      };
+
+      // Create a new Intersection Observer
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Load the image when it enters the viewport
+            const img = entry.target;
+            img.src = img.dataset.src;
+            loadedImages.value.push(img);
+            observer.unobserve(img);
+          }
+        });
+      }, options);
+
+      // Get all the images with the "data-src" attribute
+      const lazyImages = document.querySelectorAll("img[data-src]");
+
+      // Observe each lazy image
+      lazyImages.forEach((img) => {
+        observer.observe(img);
+      });
+    });
+
     return {
       images,
+      loadedImages,
+      placeholderImageSrc,
     };
   },
 };
