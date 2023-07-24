@@ -1,6 +1,8 @@
 <template>
   <div class="images__container" :id="type">
-    <a href="#">{{ type }}</a>
+    <a href="#" :class="store.state.theme === 'light' ? 'lighter' : 'darker'">{{
+      type
+    }}</a>
     <div
       class="images__grid__container"
       :class="type === 'Popular' ? 'popular' : 'featured'"
@@ -23,12 +25,15 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "FeaturedGrid",
   props: ["type", "slicedImages"],
   setup() {
     const loadedImages = ref([]);
+    const store = useStore();
+
     const placeholderImageSrc =
       "https://via.placeholder.com/800x600?text=Loading";
 
@@ -64,6 +69,7 @@ export default {
     return {
       loadedImages,
       placeholderImageSrc,
+      store,
     };
   },
 };

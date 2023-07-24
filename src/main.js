@@ -19,6 +19,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import store from "./store/store";
 
 library.add(
   faMagnifyingGlass,
@@ -37,7 +38,10 @@ library.add(
   faXmark
 );
 
-createApp(App)
+const app = createApp(App);
+
+app
   .use(router)
+  .use(store)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

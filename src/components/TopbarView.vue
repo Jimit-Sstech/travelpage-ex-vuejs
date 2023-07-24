@@ -20,23 +20,21 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "TopbarView",
   setup() {
-    const getTheme = () => {
-      return localStorage.getItem("user-theme");
-    };
-    const userTheme = ref(getTheme());
+    const store = useStore();
+    const userTheme = ref(store.state.theme);
 
     const setTheme = (theme) => {
-      localStorage.setItem("user-theme", theme);
+      store.commit("setTheme", theme);
       userTheme.value = theme;
-      document.documentElement.className = theme;
     };
 
     const toggleTheme = () => {
-      const activeTheme = localStorage.getItem("user-theme");
+      const activeTheme = userTheme.value;
       if (activeTheme === "light") {
         setTheme("dark");
       } else {
