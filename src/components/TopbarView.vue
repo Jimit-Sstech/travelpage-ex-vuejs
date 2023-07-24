@@ -23,7 +23,7 @@ import { onMounted, ref } from "vue";
 
 export default {
   name: "TopbarView",
-  setup() {
+  setup(props, { emit }) {
     const getTheme = () => {
       return localStorage.getItem("user-theme");
     };
@@ -32,6 +32,8 @@ export default {
     const setTheme = (theme) => {
       localStorage.setItem("user-theme", theme);
       userTheme.value = theme;
+      // Pass updated theme value to parent component App.vue for assign in provided 
+      emit('update:themeType', userTheme.value)
       document.documentElement.className = theme;
     };
 

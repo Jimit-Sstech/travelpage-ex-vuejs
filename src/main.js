@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -37,7 +37,11 @@ library.add(
   faXmark
 );
 
-createApp(App)
-  .use(router)
+const app = createApp(App);
+
+// theme type dark/light using provide/inject
+app.config.globalProperties.$themeType = ref(localStorage.getItem("user-theme") ? localStorage.getItem("user-theme") : 'light')
+
+app.use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

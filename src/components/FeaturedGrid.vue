@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, inject } from "vue";
 
 export default {
   name: "FeaturedGrid",
@@ -31,6 +31,9 @@ export default {
     const loadedImages = ref([]);
     const placeholderImageSrc =
       "https://via.placeholder.com/800x600?text=Loading";
+
+    // Access updated theme mode using this injector(dark/ light)
+    const selectedThemeType = inject('$themeType')
 
     onMounted(() => {
       const options = {
@@ -64,6 +67,7 @@ export default {
     return {
       loadedImages,
       placeholderImageSrc,
+      selectedThemeType
     };
   },
 };
