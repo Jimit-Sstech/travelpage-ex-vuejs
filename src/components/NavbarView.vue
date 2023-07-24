@@ -71,7 +71,7 @@ export default {
 }
 .navbar__list a {
   text-decoration: none;
-  color: black;
+  color: inherit;
   cursor: pointer;
 }
 .navbar__input__div {
@@ -80,7 +80,6 @@ export default {
   align-items: center;
   justify-content: flex-end;
   width: 17rem;
-  padding: 0 10px;
   border-radius: 50px;
   box-shadow: 1px 1px 10px 1px rgba(212, 212, 212, 1);
 }
@@ -146,7 +145,6 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 5px;
     border-radius: 50px;
     box-shadow: 1px 1px 10px 1px rgba(212, 212, 212, 1);
     margin-bottom: 20px;

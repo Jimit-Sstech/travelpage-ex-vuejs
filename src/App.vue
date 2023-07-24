@@ -26,7 +26,6 @@ html {
   font-family: "Tektur", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   max-width: 60rem;
   margin: 0 auto;
 }
@@ -34,6 +33,14 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.dark {
+  background-color: rgb(66, 65, 65);
+  color: white;
+}
+.light {
+  background-color: white;
+  color: #2c3e50;
 }
 ::-webkit-scrollbar {
   width: 5px;

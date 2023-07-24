@@ -76,7 +76,7 @@ export default {
 }
 .images__container a {
   text-decoration: none;
-  color: black;
+  color: inherit;
   font-size: 20px;
   font-weight: 900;
   border-bottom: 3px solid rgb(240, 70, 40);

@@ -7,7 +7,9 @@ import {
   faCampground,
   faCity,
   faHouse,
+  faLightbulb,
   faMagnifyingGlass,
+  faMoon,
   faRocket,
   faSoccerBall,
   faStar,
@@ -28,7 +30,9 @@ library.add(
   faRocket,
   faVirus,
   faStar,
-  faBars
+  faBars,
+  faMoon,
+  faLightbulb
 );
 
 createApp(App)

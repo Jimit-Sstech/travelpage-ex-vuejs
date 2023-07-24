@@ -4,6 +4,14 @@
       <h3>
         <router-link to="/"> Introducing the new AirTravel </router-link>
       </h3>
+      <div class="theme__icon" @click="toggleTheme">
+        <font-awesome-icon
+          icon="moon"
+          class="search__icon"
+          v-if="userTheme === 'light'"
+        />
+        <font-awesome-icon icon="lightbulb" class="search__icon" v-else />
+      </div>
       <p>Learn more</p>
     </div>
     <hr class="custom__hr" />
@@ -11,7 +19,39 @@
 </template>
 
 <script>
-export default {};
+import { onMounted, ref } from "vue";
+
+export default {
+  name: "TopbarView",
+  setup() {
+    const getTheme = () => {
+      return localStorage.getItem("user-theme");
+    };
+    const userTheme = ref(getTheme());
+
+    const setTheme = (theme) => {
+      localStorage.setItem("user-theme", theme);
+      userTheme.value = theme;
+      document.documentElement.className = theme;
+    };
+
+    const toggleTheme = () => {
+      const activeTheme = localStorage.getItem("user-theme");
+      if (activeTheme === "light") {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
+    };
+
+    onMounted(() => setTheme(userTheme.value));
+
+    return {
+      userTheme,
+      toggleTheme,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -42,9 +82,17 @@ export default {};
   font-weight: 500;
 }
 
+.topbar__info .theme__icon {
+  cursor: pointer;
+  margin-left: 30rem;
+}
+
 @media screen and (max-width: 1023px) {
   .topbar__info h3 {
     transform: translateX(0);
+  }
+  .topbar__info .theme__icon {
+    margin-left: 0;
   }
 }
 
@@ -53,6 +101,9 @@ export default {};
     font-size: 14px;
   }
   .topbar__info p {
+    font-size: 12px;
+  }
+  .topbar__info .theme__icon .search__icon {
     font-size: 12px;
   }
 }

@@ -76,7 +76,7 @@ export default {
   margin-bottom: 20px;
 }
 .images__card {
-  color: black;
+  color: inherit;
   height: 280px;
   font-size: 14px;
 }
@@ -89,10 +89,14 @@ export default {
 .images__card p {
   margin-top: 5px;
   padding: 0 5px;
-  color: gray;
+  color: inherit;
+  opacity: 0.7;
 }
-.special__p {
-  color: rgb(74, 74, 74) !important;
+.light .special__p {
+  color: rgb(74, 74, 74);
+}
+.dark .special__p {
+  color: white;
 }
 .city__info {
   display: flex;
