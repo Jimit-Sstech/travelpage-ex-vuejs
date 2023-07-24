@@ -21,9 +21,14 @@
     </div>
   </nav>
   <div :class="isMobile ? 'mobile__list' : 'hidden'">
-    <a href="#listings" @click="isMobile = false">Listings</a>
-    <a href="#Featured" @click="isMobile = false">Featured</a>
-    <a href="#Popular" @click="isMobile = false">Popular</a>
+    <div class="xmark__div" @click="isMobile = false">
+      <font-awesome-icon icon="xmark" class="xmark__icon" />
+    </div>
+    <div class="mobile__menu__list">
+      <a href="#listings" @click="isMobile = false">Listings</a>
+      <a href="#Featured" @click="isMobile = false">Featured</a>
+      <a href="#Popular" @click="isMobile = false">Popular</a>
+    </div>
   </div>
   <div class="mobile__input__div">
     <input
@@ -123,7 +128,7 @@ h3 {
   opacity: 0;
 }
 
-.mobile__list a {
+.mobile__list .mobile__menu__list a {
   text-decoration: none;
   color: inherit;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -133,6 +138,7 @@ h3 {
 @media screen and (max-width: 767px) {
   .mobile__nav {
     display: block;
+    cursor: pointer;
   }
   .navbar__list {
     display: none;
@@ -154,15 +160,62 @@ h3 {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 90px;
-    right: 30px;
-    background-color: rgb(138, 129, 129);
+    top: 0px;
+    left: 0;
+    right: 0;
     z-index: 20;
+    transition: all 0.5s ease;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .dark .mobile__list {
+    background-color: #575656;
+    color: white;
+  }
+  .light .mobile__list {
+    color: black;
+    background-color: white;
+  }
+  .mobile__list .mobile__menu__list {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 10px 30px;
-    transition: all 0.5s ease;
-    height: 130px;
+    margin-top: 20px;
+  }
+  .dark .mobile__list .mobile__menu__list a:hover {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    transition: all 0.3s ease-in;
+  }
+  .light .mobile__list .mobile__menu__list a:hover {
+    background-color: black;
     color: white;
+    padding: 5px;
+    transition: all 0.3s ease-in;
+  }
+  .xmark__div {
+    display: flex;
+    justify-content: end;
+    padding: 10px 10px 0 10px;
+    cursor: pointer;
+  }
+  .mobile__list .xmark__icon {
+    color: white;
+    border-radius: 100%;
+    font-size: 20px;
+    background-color: black;
+    padding: 5px;
+  }
+  .dark .mobile__list .xmark__icon {
+    background-color: white;
+    color: black;
+  }
+  .mobile__list .xmark__icon:hover {
+    scale: 1.1;
+    transition: all 0.3s ease;
   }
 }
 </style>

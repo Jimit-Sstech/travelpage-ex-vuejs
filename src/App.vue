@@ -35,7 +35,7 @@ html {
   box-sizing: border-box;
 }
 .dark {
-  background-color: rgb(66, 65, 65);
+  background-color: rgb(46, 45, 45);
   color: white;
 }
 .light {

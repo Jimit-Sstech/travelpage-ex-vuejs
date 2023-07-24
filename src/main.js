@@ -16,6 +16,7 @@ import {
   faTree,
   faUmbrellaBeach,
   faVirus,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -32,7 +33,8 @@ library.add(
   faStar,
   faBars,
   faMoon,
-  faLightbulb
+  faLightbulb,
+  faXmark
 );
 
 createApp(App)
