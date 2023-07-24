@@ -39,6 +39,7 @@ library.add(
 );
 
 const app = createApp(App);
+// app.config.globalProperties.$themeType = ref(localStorage.getItem("user-theme") ? localStorage.getItem("user-theme") : 'light')
 
 app
   .use(router)

@@ -34,8 +34,12 @@ export default {
     const loadedImages = ref([]);
     const store = useStore();
 
+    // const selectedThemeType = inject('$themeType')
+
     const placeholderImageSrc =
       "https://via.placeholder.com/800x600?text=Loading";
+
+    // Access updated theme mode using this injector(dark/ light)
 
     onMounted(() => {
       const options = {
@@ -70,6 +74,7 @@ export default {
       loadedImages,
       placeholderImageSrc,
       store,
+      // selectedThemeType
     };
   },
 };

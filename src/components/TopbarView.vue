@@ -24,6 +24,7 @@ import { useStore } from "vuex";
 
 export default {
   name: "TopbarView",
+  // setup(props, { emit }) {
   setup() {
     const store = useStore();
     const userTheme = ref(store.state.theme);
@@ -31,6 +32,8 @@ export default {
     const setTheme = (theme) => {
       store.commit("setTheme", theme);
       userTheme.value = theme;
+      // Pass updated theme value to parent component App.vue for assign in provided
+      // emit('update:themeType', userTheme.value)
     };
 
     const toggleTheme = () => {

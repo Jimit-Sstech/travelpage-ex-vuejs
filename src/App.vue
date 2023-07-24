@@ -1,10 +1,12 @@
 <template>
   <TopbarView />
+  <!-- <TopbarView v-model:themeType="themeType"/> -->
   <navbar-view />
   <router-view />
 </template>
 
 <script>
+// import {provide, ref} from 'vue'
 import NavbarView from "./components/NavbarView.vue";
 import TopbarView from "./components/TopbarView.vue";
 export default {
@@ -12,6 +14,16 @@ export default {
     NavbarView,
     TopbarView,
   },
+  // setup() {
+  //   const themeType = ref(localStorage.getItem("user-theme") ? localStorage.getItem("user-theme") : 'light')
+
+  //   // Assign value of provider on root level so we can access that value in app
+  //   provide('$themeType', themeType)
+
+  //   return {
+  //     themeType
+  //   }
+  // }
 };
 </script>
 
