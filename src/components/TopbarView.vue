@@ -2,7 +2,7 @@
   <div class="topbar">
     <div class="topbar__info">
       <h3>
-        <router-link to="/"> Introducing the new AirTravel </router-link>
+        <router-link to="/">{{ $t("title") }}</router-link>
       </h3>
       <div class="theme__icon" @click="toggleTheme">
         <font-awesome-icon
@@ -12,14 +12,24 @@
         />
         <font-awesome-icon icon="lightbulb" class="search__icon" v-else />
       </div>
-      <p>Learn more</p>
+      <div>
+        <select v-model="$i18n.locale">
+          <option
+            v-for="(locale, idx) in locales"
+            :key="`locale-${idx}`"
+            :value="locale"
+          >
+            {{ locale }}
+          </option>
+        </select>
+      </div>
     </div>
     <hr class="custom__hr" />
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref, toRefs } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -27,6 +37,9 @@ export default {
   // setup(props, { emit }) {
   setup() {
     const store = useStore();
+    const state = reactive({
+      locales: ["fr", "en"],
+    });
     const userTheme = ref(store.state.theme);
 
     const setTheme = (theme) => {
@@ -50,6 +63,7 @@ export default {
     return {
       userTheme,
       toggleTheme,
+      ...toRefs(state),
     };
   },
 };
@@ -61,6 +75,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 5px 20px 0px 20px;
+  gap: 20px;
 }
 
 .custom__hr {
@@ -70,7 +85,7 @@ export default {
 
 .topbar__info h3 {
   font-weight: 900;
-  transform: translateX(100%);
+  width: -webkit-fill-available;
 }
 
 .topbar__info h3 a {
@@ -85,15 +100,27 @@ export default {
 
 .topbar__info .theme__icon {
   cursor: pointer;
-  margin-left: 30rem;
+  margin-right: 30px;
+}
+
+select {
+  width: 10rem;
+  padding: 5px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1023px) {
-  .topbar__info h3 {
-    transform: translateX(0);
-  }
   .topbar__info .theme__icon {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  select {
+    width: fit-content;
+    padding: 5px 10px;
+    font-size: 14px;
   }
 }
 

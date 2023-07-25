@@ -2,9 +2,13 @@
   <div class="home">
     <CategoriesIcon />
     <ImagesGrid />
-    <FeaturedGrid type="Featured" :slicedImages="images.slice(12, 17)" />
-    <FeaturedGrid type="Popular" :slicedImages="images.slice(2, 7)" />
-    <a href="#" class="scroll__top__link">Scroll To Top</a>
+    <FeaturedGrid :type="$t('featured')" :slicedImages="images.slice(12, 17)" />
+    <FeaturedGrid :type="$t('popular')" :slicedImages="images.slice(2, 7)" />
+    <div class="flex__scrollbtn">
+      <a href="#" class="scroll__top__link">
+        <font-awesome-icon icon="arrow-circle-up" class="search__icon" />
+      </a>
+    </div>
     <div class="margin__bottom"></div>
   </div>
 </template>
@@ -27,6 +31,13 @@ export default {
 </script>
 
 <style scoped lang="css">
+.flex__scrollbtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.flex__scrollbtn .scroll__top__link .search__icon {
+  font-size: 20px;
+}
 .scroll__top__link {
   color: inherit;
   text-decoration: none;

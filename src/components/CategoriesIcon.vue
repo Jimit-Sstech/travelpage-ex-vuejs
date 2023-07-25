@@ -2,28 +2,34 @@
   <div class="categories__container">
     <div class="category" v-for="(category, idx) in categories" :key="idx">
       <font-awesome-icon :icon="category.iconName" class="search__icon" />
-      <p>{{ category.name }}</p>
+      <p>{{ $t(category.name) }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { useI18n } from "vue-i18n";
 export default {
   name: "CategoriesIcon",
   setup() {
+    const { t } = useI18n({
+      inheritLocale: true,
+      useScope: "local",
+    });
     const categories = [
-      { name: "Home", iconName: "house" },
-      { name: "Artic", iconName: "virus" },
-      { name: "Space", iconName: "rocket" },
-      { name: "Trees", iconName: "tree" },
-      { name: "City", iconName: "city" },
-      { name: "Camping", iconName: "campground" },
-      { name: "Beach", iconName: "umbrella-beach" },
-      { name: "Games", iconName: "soccer-ball" },
+      { name: "homeIcon", iconName: "house" },
+      { name: "articIcon", iconName: "virus" },
+      { name: "spaceIcon", iconName: "rocket" },
+      { name: "treesIcon", iconName: "tree" },
+      { name: "cityIcon", iconName: "city" },
+      { name: "campingIcon", iconName: "campground" },
+      { name: "beachIcon", iconName: "umbrella-beach" },
+      { name: "gamesIcon", iconName: "soccer-ball" },
     ];
 
     return {
       categories,
+      t,
     };
   },
 };

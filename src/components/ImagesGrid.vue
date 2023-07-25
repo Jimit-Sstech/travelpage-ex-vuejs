@@ -3,15 +3,17 @@
     <div class="images__card" v-for="(image, id) in images" :key="id">
       <img :src="placeholderImageSrc" :data-src="image.src" :alt="image.alt" />
       <div class="city__info">
-        <h4>City, State</h4>
+        <h4>{{ $t("cityState") }}</h4>
         <div class="rating">
           <span>5.0</span>
           <font-awesome-icon icon="star" class="search__icon" />
         </div>
       </div>
-      <p>Hosted by Reality Group, LLC</p>
-      <p>Jun 1 - 7</p>
-      <p class="special__p"><b>$ 749 night</b></p>
+      <p>{{ $t("hostedBy") }}</p>
+      <p>{{ $t("date") }}</p>
+      <p class="special__p">
+        <b>{{ $t("cost") }}</b>
+      </p>
     </div>
   </div>
 </template>

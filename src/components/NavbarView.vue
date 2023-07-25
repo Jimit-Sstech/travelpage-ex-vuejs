@@ -1,20 +1,20 @@
 <template>
   <nav class="navbar">
     <div>
-      <h3>airtravel</h3>
+      <h3>{{ $t("homePageTitle") }}</h3>
     </div>
     <div class="navbar__input__div">
       <input
         type="text"
         class="navbar__input"
-        placeholder="Search Properties..."
+        :placeholder="$t('searchProperties')"
       />
       <font-awesome-icon icon="magnifying-glass" class="search__icon" />
     </div>
     <div class="navbar__list">
-      <a href="#listings">Listings</a>
-      <a href="#Featured">Featured</a>
-      <a href="#Popular">Popular</a>
+      <a href="#listings">{{ $t("listings") }}</a>
+      <a href="#Featured">{{ $t("featured") }}</a>
+      <a href="#Popular">{{ $t("popular") }}</a>
     </div>
     <div class="mobile__nav" @click="setIsMobile">
       <font-awesome-icon icon="bars" />
@@ -25,16 +25,16 @@
       <font-awesome-icon icon="xmark" class="xmark__icon" />
     </div>
     <div class="mobile__menu__list">
-      <a href="#listings" @click="isMobile = false">Listings</a>
-      <a href="#Featured" @click="isMobile = false">Featured</a>
-      <a href="#Popular" @click="isMobile = false">Popular</a>
+      <a href="#listings" @click="isMobile = false">{{ $t("listings") }}</a>
+      <a href="#Featured" @click="isMobile = false">{{ $t("featured") }}</a>
+      <a href="#Popular" @click="isMobile = false">{{ $t("popular") }}</a>
     </div>
   </div>
   <div class="mobile__input__div">
     <input
       type="text"
       class="navbar__input"
-      placeholder="Search Properties..."
+      :placeholder="$t('searchProperties')"
     />
     <font-awesome-icon icon="magnifying-glass" class="search__icon" />
   </div>

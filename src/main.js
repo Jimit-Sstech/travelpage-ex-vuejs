@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faArrowCircleUp,
   faBars,
   faCampground,
   faCity,
@@ -20,6 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import store from "./store/store";
+import i18n from "./i18n";
 
 library.add(
   faMagnifyingGlass,
@@ -35,10 +37,11 @@ library.add(
   faBars,
   faMoon,
   faLightbulb,
-  faXmark
+  faXmark,
+  faArrowCircleUp
 );
 
-const app = createApp(App);
+const app = createApp(App).use(i18n);
 // app.config.globalProperties.$themeType = ref(localStorage.getItem("user-theme") ? localStorage.getItem("user-theme") : 'light')
 
 app
