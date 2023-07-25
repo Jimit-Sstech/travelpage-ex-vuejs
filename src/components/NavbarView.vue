@@ -12,9 +12,9 @@
       <font-awesome-icon icon="magnifying-glass" class="search__icon" />
     </div>
     <div class="navbar__list">
-      <a href="#listings">{{ $t("listings") }}</a>
-      <a href="#Featured">{{ $t("featured") }}</a>
-      <a href="#Popular">{{ $t("popular") }}</a>
+      <a :href="`#${$t('listings')}`">{{ $t("listings") }}</a>
+      <a :href="`#${$t('featured')}`">{{ $t("featured") }}</a>
+      <a :href="`#${$t('popular')}`">{{ $t("popular") }}</a>
     </div>
     <div class="mobile__nav" @click="setIsMobile">
       <font-awesome-icon icon="bars" />
@@ -25,9 +25,15 @@
       <font-awesome-icon icon="xmark" class="xmark__icon" />
     </div>
     <div class="mobile__menu__list">
-      <a href="#listings" @click="isMobile = false">{{ $t("listings") }}</a>
-      <a href="#Featured" @click="isMobile = false">{{ $t("featured") }}</a>
-      <a href="#Popular" @click="isMobile = false">{{ $t("popular") }}</a>
+      <a :href="`#${$t('listings')}`" @click="isMobile = false">{{
+        $t("listings")
+      }}</a>
+      <a :href="`#${$t('featured')}`" @click="isMobile = false">{{
+        $t("featured")
+      }}</a>
+      <a :href="`#${$t('popular')}`" @click="isMobile = false">{{
+        $t("popular")
+      }}</a>
     </div>
   </div>
   <div class="mobile__input__div">

@@ -1,5 +1,5 @@
 <template>
-  <div class="images__container" id="listings">
+  <div class="images__container" :id="$t('listings')">
     <div class="images__card" v-for="(image, id) in images" :key="id">
       <img :src="placeholderImageSrc" :data-src="image.src" :alt="image.alt" />
       <div class="city__info">
